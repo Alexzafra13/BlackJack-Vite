@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="container-principal">
+        <header class="cabecera-principal">
+            <h1>BlackJack - Game</h1>
+        </header>
+        
+        <div class="botones">
+            <button id="btnNuevo" class="btn-rojo">Nuevo Juego</button>
+            <button id="btnPedir" class="btn-pedir">Pedir carta</button>
+            <button id="btnDetener" class="btn-plantarse">Plantarse</button>
+        </div>
+        
+        <div class="panel-jugador">
+            <h2>Jugador 1 - <span class="puntos">0</span></h2>
+        </div>
+        
+        <div id="jugador-cartas" class="divCartas">
+        </div>
+        
+        <div class="panel-maquina">
+            <h2>Máquina - <span class="puntos">0</span></h2>
+        </div>
+        
+        <div id="maquina-cartas" class="divCartas">
+        
+        </div>
+
+        <div id="mensaje-final" class="mensaje oculto">
+            <h2 id="texto-mensaje"></h2>
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

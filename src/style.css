@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --blanco: #fff;
+    --negro: #000;
+    --fondoVerde: #2F4F30;
+    --rojo: #dc3545;
+    --azul: #007bff;
+    --verde: #28a745;
+    --sombraOscura: rgba(0, 0, 0, 0.3);
+    --fondoSutil: rgba(255, 255, 255, 0.1);
+
+    /* Variables nuevas para máquina basadas en azul */
+    --azul-maquina-claro: rgba(0, 123, 255, 0.15);
+    --azul-maquina-oscuro: rgba(0, 123, 255, 0.3);
+    --azul-maquina-borde: rgba(0, 123, 255, 0.4);
+    --azul-maquina-sombra: rgba(0, 123, 255, 0.25);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Globales */
+body {
+    background-color: var(--fondoVerde);
+    margin: 0;
+    height: 100vh;
+    font-family: 'Orbitron', monospace;
+}
+
+/* Tipografia */
+h1 {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+/* Layout Principal */
+.container-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto 1fr;
+    grid-template-areas:
+        "cabecera"
+        "botones"
+        "panelj1"
+        "cartasj1"
+        "panelmaquina"
+        "cartasmaquina";
+    gap: 2rem;
+    height: 100vh;
+    padding: 1rem;
+}
+
+/* Cabecera */
+.cabecera-principal {
+    grid-area: cabecera;
+    background: linear-gradient(135deg, var(--negro), #333);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px var(--sombraOscura);
+}
+
+.cabecera-principal h1 {
+    color: var(--blanco);
+    text-align: center;
+    text-shadow: 0 2px 4px var(--sombraOscura);
+}
+
+/* Botones */
+.botones {
+    grid-area: botones;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botones button {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px var(--sombraOscura);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.botones button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px var(--sombraOscura);
+}
+
+.btn-rojo {
+    background: linear-gradient(135deg, var(--rojo), #a02834);
+    color: var(--blanco);
+}
+
+.btn-pedir {
+    background: linear-gradient(135deg, var(--azul), #0056b3);
+    color: var(--blanco);
+}
+
+.btn-plantarse {
+    background: linear-gradient(135deg, var(--verde), #1e7e34);
+    color: var(--blanco);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Cartas */
+.carta {
+    max-width: 12rem;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 6px 12px var(--sombraOscura);
+    transition: transform 0.3s ease;
+}
+
+.carta:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Paneles */
+.panel-jugador {
+    grid-area: panelj1;
+    background: linear-gradient(135deg, var(--fondoSutil), rgba(255, 255, 255, 0.05));
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px var(--sombraOscura);
+}
+
+.panel-jugador h2 {
+    color: var(--blanco);
+    text-align: center;
+    text-shadow: 0 2px 4px var(--sombraOscura);
+}
+
+.panel-jugador h2::before {
+    content: "🎮 ";
+    font-size: 2rem;
+}
+
+/* Cambios aquí: panel máquina con tonos azules */
+.panel-maquina {
+    grid-area: panelmaquina;
+    background: linear-gradient(135deg, var(--azul-maquina-claro), var(--azul-maquina-oscuro));
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid var(--azul-maquina-borde);
+    box-shadow: 0 4px 8px var(--azul-maquina-sombra);
+}
+
+.panel-maquina h2 {
+    color: var(--blanco);
+    text-align: center;
+    text-shadow: 0 2px 4px var(--sombraOscura);
+}
+
+.panel-maquina h2::before {
+    content: "🤖 ";
+    font-size: 2rem;
+}
+
+#jugador-cartas {
+    grid-area: cartasj1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    min-height: 15rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+}
+
+#maquina-cartas {
+    grid-area: cartasmaquina;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    min-height: 15rem;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 1rem;
+    border: 2px dashed rgba(0, 123, 255, 0.3);
+}
+
+.mensaje {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000000dd;
+    color: white;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    font-size: 2.4rem;
+    text-align: center;
+    box-shadow: 0 6px 20px var(--sombraOscura);
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Media Querys */
+@media (max-width: 600px) {
+    .container-principal {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .cabecera-principal {
+        padding: 0.5rem;
+    }
+
+    .cabecera-principal h1 {
+        font-size: 2rem;
+    }
+
+    .carta {
+        max-width: 8rem;
+    }
+
+    #jugador-cartas,
+    #maquina-cartas {
+        min-height: 10rem;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .botones button {
+        width: 100%;
+        font-size: 1.8rem;
+        padding: 1.5rem 2rem;
+    }
+}
